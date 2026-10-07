@@ -12,6 +12,7 @@ from `/etc/nixos` and kept in git so it can be cloned onto another machine.
 - `home/` — per-user dotfiles and packages (git, pi skills, nvim, …)
 - `hosts/nixos/hardware-configuration.nix` — this machine's hardware scan (per-machine, generated)
 - `docs/flakes-setup.md` — steps to enable flakes on NixOS (fresh machines)
+- `docs/pi-setup.md` — pi (coding agent) plugins/packages installed on this machine
 
 ## Rebuild (this machine)
 

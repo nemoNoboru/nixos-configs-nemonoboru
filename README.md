@@ -11,6 +11,7 @@ from `/etc/nixos` and kept in git so it can be cloned onto another machine.
 - `home-manager.nix` — wires home-manager for the `nixos` user
 - `home/` — per-user dotfiles and packages (git, pi skills, nvim, …)
 - `hosts/nixos/hardware-configuration.nix` — this machine's hardware scan (per-machine, generated)
+- `docs/flakes-setup.md` — steps to enable flakes on NixOS (fresh machines)
 
 ## Rebuild (this machine)
 

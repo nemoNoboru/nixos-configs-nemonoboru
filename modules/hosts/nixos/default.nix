@@ -10,6 +10,7 @@ in
       features.user
       features.ryoku
       features."llm-agents"
+      features.steam
       features."home-manager"
       ./_configuration.nix
       ./_hardware-configuration.nix

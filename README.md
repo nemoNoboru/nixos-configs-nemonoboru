@@ -13,6 +13,7 @@ from `/etc/nixos` and kept in git so it can be cloned onto another machine.
   - `user.nix` — the `nixos` user account + their packages
   - `ryoku.nix` — Ryoku feature (+ `_ryoku-settings.nix`)
   - `llm-agents.nix` — AI coding tools feature
+  - `steam.nix` — Steam + 32-bit graphics
   - `home-manager.nix` — home-manager wiring (imports `home/`)
   - `hosts/nixos/` — `default.nix` lists features; `_`-prefixed files are plain NixOS modules
 - `home/` — home-manager modules (git, pi skills, nvim, …)

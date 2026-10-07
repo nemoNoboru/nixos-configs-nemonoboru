@@ -3,16 +3,20 @@
 NixOS configuration for this machine (`nixos`, x86_64-linux, NixOS 26.05), ported
 from `/etc/nixos` and kept in git so it can be cloned onto another machine.
 
-## Layout
+## Layout (dendritic)
 
-- `flake.nix` — pinned inputs + `nixosConfigurations.nixos`
-- `configuration.nix` — shared system config (GNOME, networking, user, packages)
-- `ryoku.nix` — Ryoku desktop settings
-- `home-manager.nix` — wires home-manager for the `nixos` user
-- `home/` — per-user dotfiles and packages (git, pi skills, nvim, …)
-- `hosts/nixos/hardware-configuration.nix` — this machine's hardware scan (per-machine, generated)
-- `docs/flakes-setup.md` — steps to enable flakes on NixOS (fresh machines)
-- `docs/pi-setup.md` — pi (coding agent) plugins/packages installed on this machine
+- `flake.nix` — pinned inputs + `mkFlake` wiring (never grows)
+- `modules/` — auto-imported by import-tree; every file is a flake-parts module
+  - `flake-parts.nix` — flake-level settings (enables `flake.modules.*`, sets systems)
+  - `base.nix` — experimental features + allowUnfree
+  - `packages.nix` — system packages
+  - `user.nix` — the `nixos` user account + their packages
+  - `ryoku.nix` — Ryoku feature (+ `_ryoku-settings.nix`)
+  - `llm-agents.nix` — AI coding tools feature
+  - `home-manager.nix` — home-manager wiring (imports `home/`)
+  - `hosts/nixos/` — `default.nix` lists features; `_`-prefixed files are plain NixOS modules
+- `home/` — home-manager modules (git, pi skills, nvim, …)
+- `docs/` — flake setup + pi plugin docs
 
 ## Rebuild (this machine)
 
@@ -28,7 +32,7 @@ Dry runs: `nix flake check`, `nixos-rebuild build --flake ~/nixos-config#nixos`.
 ## Home-manager (dotfiles)
 
 Per-user config lives in `home/` (git identity, pi skills, nvim, …) and is applied
-as part of every `nixos-rebuild switch`. It is wired in `home-manager.nix`.
+as part of every `nixos-rebuild switch`. It is wired in `modules/home-manager.nix`.
 
 - `home/default.nix` — user + imports
 - `home/git.nix` — git identity (edit `userName`/`userEmail` before your first commit)

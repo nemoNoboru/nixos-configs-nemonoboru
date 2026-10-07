@@ -27,9 +27,9 @@ Read `references/machine-profile.md` first — it holds host-specific facts
 
 ## Where things live
 
-- **Principal config: `~/nixos-config/`** (git repo) — `flake.nix`, `flake.lock`,
-  `configuration.nix`, `ryoku.nix`, `home/` (home-manager), `hosts/nixos/`.
-  Ported from `/etc/nixos`; edit here.
+- **Principal config: `~/nixos-config/`** (git repo, dendritic) — `flake.nix`,
+  `flake.lock`, `modules/` (auto-imported features + `hosts/nixos/`),
+  `home/` (home-manager). Ported from `/etc/nixos`; edit here.
 - `/etc/nixos/` — optional thin shim pointing at the home flake, or unused.
 - Stray junk to ignore: `/home/nixos/flake.nix` and `/home/nixos/nixosconfig/`
   (unrelated template flakes, not the real config).

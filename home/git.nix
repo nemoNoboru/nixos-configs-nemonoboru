@@ -2,11 +2,10 @@
 {
   programs.git = {
     enable = true;
-    # TODO: set your identity before the first commit.
     settings = {
       user = {
-        name = "nixos";
-        email = "nixos@localhost";
+        name = "nemoNoboru";
+        email = "felipetavres@gmail.com";
       };
       init = {
         defaultBranch = "main";
